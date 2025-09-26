@@ -16,6 +16,16 @@ app.use(express.json());
 // Simple in-memory store
 const users = {};
 
+// ✅ Root health check
+app.get("/", (req, res) => {
+  res.send("✅ PintoBot server is live and running!");
+});
+
+// Optional JSON health endpoint
+app.get("/health", (req, res) => {
+  res.json({ status: "ok", message: "PintoBot server is live 🚀" });
+});
+
 // Join endpoint
 app.post("/api/join", (req, res) => {
   const { name } = req.body;
