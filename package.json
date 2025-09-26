@@ -1,12 +1,13 @@
 {
-  "name": "pintobot-server",
+  "name": "pintobot",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "start": "node index.js"
+    "start": "concurrently \"npm run start-server\" \"npm run start-client\"",
+    "start-server": "cd server && npm start",
+    "start-client": "cd client && npm start"
   },
-  "dependencies": {
-    "express": "^4.18.2",
-    "socket.io": "^4.8.1"
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }
